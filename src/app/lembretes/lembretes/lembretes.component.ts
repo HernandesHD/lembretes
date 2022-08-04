@@ -1,3 +1,5 @@
+import { SuccessPopupComponent } from './../../shared/components/success-popup/success-popup.component';
+import { HttpClient } from '@angular/common/http';
 import { ImportsAngularMaterialModule } from './../../shared/imports-angular-material/imports-angular-material.module';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,6 +13,7 @@ import { ErrorPopupComponent } from '../../shared/components/error-popup/error-p
 import { LembretesFormComponent } from '../../shared/components/lembretes/lembretes-form/lembretes-form.component';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 
 export interface DialogData {
   title: string;
@@ -39,7 +42,8 @@ export class LembretesComponent implements OnInit {
   constructor(
     private lembretesService: LembretesService,
     public dialog: MatDialog,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private location: Location
     ) {
 
       this.form = this.formBuilder.group({
@@ -57,7 +61,6 @@ export class LembretesComponent implements OnInit {
           return of([])
         })
       );
-
   }
 
   showPopUpError(error: string) {
@@ -66,6 +69,11 @@ export class LembretesComponent implements OnInit {
     });
   }
 
+  showPopUpSuccess(success: string) {
+    this.dialog.open(SuccessPopupComponent, {
+      data: success
+    });
+  }
 
   openDialog(): void {
     debugger
@@ -81,6 +89,13 @@ export class LembretesComponent implements OnInit {
       this.title = result.value.title;
       this.description = result.value.description;
       this.priority = result.value.priority;
+      //Save no banco via API
+      this.lembretesService.save(result.value)
+        .subscribe(data => this.showPopUpSuccess("Lembrete cadastrado com sucesso!!!"),
+        error => {
+          console.log(error);
+          this.showPopUpError('Erro ao salvar lembrete: ' + error.message)
+        });
     });
   }
 

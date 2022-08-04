@@ -5,6 +5,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ErrorPopupComponent } from './components/error-popup/error-popup.component';
 import { PriorityPipe } from './pipes/priority.pipe';
 import { LembretesFormComponent } from './components/lembretes/lembretes-form/lembretes-form.component';
+import { SuccessPopupComponent } from './components/success-popup/success-popup.component';
 
 
 
@@ -12,7 +13,8 @@ import { LembretesFormComponent } from './components/lembretes/lembretes-form/le
   declarations: [
     ErrorPopupComponent,
     PriorityPipe,
-    LembretesFormComponent
+    LembretesFormComponent,
+    SuccessPopupComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { LembretesFormComponent } from './components/lembretes/lembretes-form/le
   exports: [
     ErrorPopupComponent,
     PriorityPipe,
-    LembretesFormComponent
+    LembretesFormComponent,
+    SuccessPopupComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
