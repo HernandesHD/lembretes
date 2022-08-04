@@ -1,5 +1,0 @@
-[
-  { "_id": "1", "title": "Teste 1...", "description": "Testando o teste 1", "priority": "baixa" },
-  { "_id": "2", "title": "Teste 2...", "description": "Testando o teste 2", "priority": "media" },
-  { "_id": "3", "title": "Teste 3...", "description": "Testando o teste 3", "priority": "alta" }
-]
