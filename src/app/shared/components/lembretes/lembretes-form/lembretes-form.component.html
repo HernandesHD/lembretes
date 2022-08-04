@@ -1,0 +1,69 @@
+<div class="txt-titulo-form" style="text-align: center; width: 100%;">
+  <h2>REGISTRAR UM LEMBRETE</h2>
+</div>
+
+<form [formGroup]="data">
+  <mat-form-field appearance="outline">
+    <mat-label>Informe o título</mat-label>
+    <input matInput placeholder="Titulo" formControlName="title">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Informe a descrição</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+
+  <!--mat-form-field>
+    <mat-label>Selecione a prioridade</mat-label>
+    <mat-select placeholder="Which option?" [(ngModel)]="selectedChoice" >
+      <mat-option>None</mat-option>
+      <mat-option value="one">baixa</mat-option>
+      <mat-option value="two">media</mat-option>
+      <mat-option value="three">alta</mat-option>
+    </mat-select>
+  </mat-form-field-->
+
+  <mat-form-field>
+    <mat-label>Selecione a prioridade</mat-label>
+    <mat-select placeholder="Which option?" [(ngModel)]="selectedChoice" formControlName="priority" ngDefaultControl>
+      <mat-option value="baixa">Baixa</mat-option>
+      <mat-option value="media">Média</mat-option>
+      <mat-option value="alta">Alta</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button color="warn" (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data" color="primary" cdkFocusInitial>Cadastrar</button>
+</div>
+
+<!--h1 mat-dialog-title>Hi {{ data }}</!--h1>
+
+  <div-- mat-dialog-content>
+    <p>Insira os dados para criar um lembrete</p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Titulo do lembrete:</mat-label>
+        <input matInput class="input-full-width" [(ngModel)]="data.title">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Descrição do lembrete</mat-label>
+        <textarea matInput class="input-full-width" [(ngModel)]="data.description"></textarea>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Prioridade do lembrete:</mat-label>
+        <input matInput class="input-full-width" [(ngModel)]="data.priority">
+      </mat-form-field>
+    </p>
+  </div-->
+  <!--div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  </div-->
+

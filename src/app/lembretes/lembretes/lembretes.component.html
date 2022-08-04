@@ -23,6 +23,22 @@
         </td>
       </ng-container>
 
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef="">
+          <button mat-mini-fab aria-label="Adicionar um lembrete." (click)="openDialog()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-header-cell>
+
+        <mat-cell *matCellDef="let lembretes">
+          <button mat-icon-button color="primary" aria-label="Editar um lembrete">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-cell>
+
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>

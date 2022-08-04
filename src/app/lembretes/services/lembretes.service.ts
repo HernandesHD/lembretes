@@ -9,17 +9,19 @@ import { tap, first, delay } from 'rxjs/operators';
 })
 export class LembretesService {
 
-  private readonly API = 'http://localhost:8090/api/lembretes';
+  private readonly API = 'http://localhost:8090/api/';
 
   constructor(private httpClient: HttpClient) { }
 
   listaLembretes() {
-    return this.httpClient.get<Lembrete[]>(this.API)
+    return this.httpClient.get<Lembrete[]>(this.API + 'lembretes')
     .pipe(
       first(),
       delay(5000), //apenas para simular o carregamento com spinner
       tap(lembretes => console.log(lembretes))
     );
   }
+
+
 
 }

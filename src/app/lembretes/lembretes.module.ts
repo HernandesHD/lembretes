@@ -8,8 +8,6 @@ import { LembretesRoutingModule } from './lembretes-routing.module';
 import { LembretesComponent } from './lembretes/lembretes.component';
 
 
-
-
 @NgModule({
   declarations: [
     LembretesComponent

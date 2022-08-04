@@ -1,16 +1,18 @@
 import { ImportsAngularMaterialModule } from './imports-angular-material/imports-angular-material.module';
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { ErrorPopupComponent } from './components/error-popup/error-popup.component';
 import { PriorityPipe } from './pipes/priority.pipe';
+import { LembretesFormComponent } from './components/lembretes/lembretes-form/lembretes-form.component';
 
 
 
 @NgModule({
   declarations: [
     ErrorPopupComponent,
-    PriorityPipe
+    PriorityPipe,
+    LembretesFormComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,9 @@ import { PriorityPipe } from './pipes/priority.pipe';
   ],
   exports: [
     ErrorPopupComponent,
-    PriorityPipe
-  ]
+    PriorityPipe,
+    LembretesFormComponent
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedModule { }
