@@ -26,6 +26,12 @@ export class LembretesService {
     return this.httpClient.post<Lembrete>(this.API, lembrete);
   }
 
+  edit(lembrete: Lembrete) {
+    return this.httpClient.put<Lembrete>(this.API + '/edit/' + lembrete._id, lembrete);
+  }
 
+  delete(lembrete: Lembrete) {
+    return this.httpClient.delete<Lembrete>(this.API + '/delete/' + lembrete._id);
+  }
 
 }

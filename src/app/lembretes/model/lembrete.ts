@@ -1,6 +1,7 @@
 export interface Lembrete {
-  _id: string;
-  title: string;
-  description: string;
-  priority: string;
+  _id?: string;
+  title?: string;
+  description?: string;
+  priority?: string;
+  editMode?: boolean;
 }
